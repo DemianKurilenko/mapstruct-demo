@@ -1,9 +1,8 @@
 package com.github.mapstructdemo.simple;
 
-import org.mapstruct.InheritConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
+
+import java.util.List;
 
 @Mapper
 public interface CarSimpleMapper {
@@ -20,4 +19,9 @@ public interface CarSimpleMapper {
     void updateCar(CarModel carModel, @MappingTarget Car car);
 
     Car updateCarWithReturnCar(CarModel carModel, @MappingTarget Car car);
+
+    List<CarAnotherDto> toCarAnotherDtos(List<CarModel> carModels);
+
+    @InheritInverseConfiguration
+    void toCarModelInherit(@MappingTarget CarModel carModel, CarAnotherDto carAnotherDto);
 }

@@ -25,7 +25,7 @@ repositories {
 
 compileJava {
     options.compilerArgs = [
-            '-Amapstruct.defaultComponentModel=spring',
+            '-Amapstruct.defaultComponentModel=spring'
     ]
 }
 
@@ -40,5 +40,5 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-    
+
 }
