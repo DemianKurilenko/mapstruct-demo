@@ -1,4 +1,4 @@
-package com.github.mapstructdemo.simple.engine;
+package com.github.mapstructdemo.medium;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

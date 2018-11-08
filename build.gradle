@@ -10,13 +10,18 @@ buildscript {
     }
 }
 
+plugins {
+    id "net.ltgt.apt" version "0.17"
+}
+
+
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.github'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -29,9 +34,11 @@ compileJava {
     ]
 }
 
+//Hack for IDE & jpamodelgen & mapstruct
+sourceSets.main.java.srcDir file("$buildDir/generated/source/apt/")
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter')
 
     compile("org.mapstruct:mapstruct-jdk8:${mapstructVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
